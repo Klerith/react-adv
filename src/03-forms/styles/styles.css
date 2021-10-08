@@ -1,0 +1,25 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+input, select {
+    margin-top: 5px;
+    outline: none;
+    padding: 10px;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+span, .error-message {
+    color: red;
+}
+
+.has-error {
+    border: 1px solid red;
+}
