@@ -25,6 +25,7 @@ nav {
   height: 100vh;
   margin-right: 15px;
   overflow-y: scroll;
+  overflow-y: hidden;
   text-align: center;
   width: 250px;
 }
