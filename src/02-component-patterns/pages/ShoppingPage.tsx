@@ -9,8 +9,6 @@ const product = {
 
 const ShoppingPage = () => {
 
-
-
   return (
     <div>
       <h1>Shopping Page</h1>
