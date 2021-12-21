@@ -1,7 +1,7 @@
 const LazyPage3 = () => {
   return (
     <>
-      <div>LazyPage 3</div>
+      <h1>LazyPage 3</h1>
     </>
   );
 };
