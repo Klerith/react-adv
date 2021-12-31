@@ -4,14 +4,15 @@ import styles from '../styles/styles.module.css'
 
 export interface PropsButtons {
   className?: string
+  style?   : React.CSSProperties
 }
 
-export const ProductButtons = ( { className } : PropsButtons) => {
+export const ProductButtons = ( { className, style } : PropsButtons) => {
 
   const { counter, increaseBy } = useContext(ProductContext)
   
   return (
-    <div className={`${styles.buttonsContainer} ${className}`}>
+    <div className={`${styles.buttonsContainer} ${className}`} style={style} >
         <button 
           onClick={() => increaseBy(-1)}
           className={styles.buttonMinus} 

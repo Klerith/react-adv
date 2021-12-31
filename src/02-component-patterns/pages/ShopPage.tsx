@@ -43,6 +43,17 @@ const ShopPage = () => {
           <ProductButtons className='custom-btn' />
         </ProductCard>
 
+        <ProductCard 
+          product={product2}
+          style={{
+            boxShadow: "0 0 10px #0ab4e7",
+          }}
+        >
+          <ProductImage />
+          <ProductTitle style={{ color:'red' }}/>
+          <ProductButtons />
+        </ProductCard>
+
       </div>
     </div>
   )
