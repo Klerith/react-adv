@@ -24,3 +24,10 @@
   color: white;
   border-color: white;
 }
+
+
+.shopping-card{
+  position: fixed;
+  top: 0px;
+  right: 10px;
+}

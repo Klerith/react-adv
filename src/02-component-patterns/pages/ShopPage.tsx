@@ -1,5 +1,6 @@
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from "../components"
 import '../styles/custom-styles.css'
+import { Product } from '../interfaces/IProduct';
 
 const product = {
     id: '1',
@@ -10,8 +11,10 @@ const product = {
 const product2 = {
   id: '2',
   title: "Product 2",
-  img: "",
+  img: "/coffee-mug2.png",
 }
+
+const products: Product[] = [product, product2];
 
 const ShopPage = () => {
   return (
@@ -24,36 +27,29 @@ const ShopPage = () => {
         flexWrap: "wrap",
       }}>
 
-        <ProductCard 
-          product={product} 
-          className="bg-dark shadow-cart text-white"
-        >
-          <ProductCard.Image className='custom-img' />
-          <ProductCard.Title title="Component" />
-          <ProductCard.Buttons className='custom-btn' />
-        </ProductCard>
+        {products.map((product) => (
+          <ProductCard 
+            key={product.id}
+            product={product} 
+            className="bg-dark shadow-cart text-white"
+          >
+            <ProductImage className='custom-img'/>
+            <ProductTitle className='bold'/>
+            <ProductButtons className='custom-btn' />
+          </ProductCard>
+        ))}
 
+      </div>
 
-        <ProductCard 
-          product={product2} 
-          className="bg-dark shadow-cart text-white"
-        >
-          <ProductImage className='custom-img'/>
-          <ProductTitle className='bold'/>
-          <ProductButtons className='custom-btn' />
-        </ProductCard>
-
-        <ProductCard 
-          product={product2}
-          style={{
-            boxShadow: "0 0 10px #0ab4e7",
-          }}
-        >
-          <ProductImage />
-          <ProductTitle style={{ color:'red' }}/>
-          <ProductButtons />
-        </ProductCard>
-
+      <div className="shopping-card">
+      <ProductCard 
+            product={product2} 
+            className="bg-dark text-white"
+            style={{width: "100px"}}
+          >
+            <ProductImage className='custom-img'/>
+            <ProductButtons className='custom-btn' />
+          </ProductCard>
       </div>
     </div>
   )
