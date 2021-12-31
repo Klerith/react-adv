@@ -12,7 +12,7 @@ export const ProductContext = createContext({} as ProviderProps);
 const { Provider } = ProductContext;
 
 
-const ProductCard = ({ product, children } : Props) => {
+export const ProductCard = ({ product, children } : Props) => {
 
   const { counter, increaseBy } = useProduct()
 
@@ -31,8 +31,8 @@ const ProductCard = ({ product, children } : Props) => {
 }
 
 
-ProductCard.Title = ProductTitle;
-ProductCard.Image = ProductImage;
-ProductCard.Buttons = ProductButtons;
+// ProductCard.Title = ProductTitle;
+// ProductCard.Image = ProductImage;
+// ProductCard.Buttons = ProductButtons;
 
 export default ProductCard

@@ -11,3 +11,5 @@ export const ProductTitle = ({ title = ''}) => {
     <span className={styles.productDescription} >{title ? title : product.title}</span>
   )
 }
+
+export default ProductTitle

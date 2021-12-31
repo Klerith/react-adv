@@ -16,3 +16,11 @@ export interface ProviderProps {
   increaseBy: (value: number) => void,
   product: Product
 }
+
+
+export interface ProductCardProps {
+  ({ product, children }: Props ): JSX.Element,
+  Title  : ({ title }: { title?: string }) => JSX.Element,
+  Image  : ({ img }: { img?: string }) => JSX.Element,
+  Buttons: () => JSX.Element
+}

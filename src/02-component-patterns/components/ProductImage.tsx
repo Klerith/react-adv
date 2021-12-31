@@ -21,3 +21,5 @@ export const ProductImage = ({ img = ''}) => {
     <img className={styles.productImg} src={ imgToShow } alt="Producto" />
   )
 }
+
+export default ProductImage

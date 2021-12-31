@@ -26,3 +26,5 @@ export const ProductButtons = ( ) => {
       </div>
   )
 }
+
+export default ProductButtons
