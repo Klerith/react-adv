@@ -7,6 +7,7 @@ import {
 
 import logo from '../logo.svg';
 import { ShoppingPage } from '../02-component-patterns/pages/ShoppingPage';
+import { CardPage } from '../componente-mio-02/page';
 
 export const Navigation = () => {
   return (
@@ -38,6 +39,7 @@ export const Navigation = () => {
           </Route>
           <Route path="/">
             <ShoppingPage />
+            <CardPage /> 
           </Route>
         </Switch>
       </div>
