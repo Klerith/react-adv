@@ -1,52 +1,28 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from 'react-router-dom';
-import { LazyPage1, LazyPage2, LazyPage3 } from '../01-lazyload/pages/index';
-
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
 import logo from '../logo.svg';
+import { Lix } from './Components/Lix';
+import { RouteData, routes } from './routes';
+
+const RS = ({path, Component} : RouteData) =>  (<Route key={path} path={path} element={<Component/>}/>)
 
 export const Navigation = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <div className="main-layout">
         <nav>
             <img src={ logo } alt="React Logo" />
           <ul>
-            <li>
-              <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/lazy1" activeClassName="nav-active" exact>lazy 1</NavLink>
-            </li>
-            <li>
-              <NavLink to="/lazy2" activeClassName="nav-active" exact>lazy 2</NavLink>
-            </li>
-            <li>
-              <NavLink to="/lazy3" activeClassName="nav-active" exact>lazy 3</NavLink>
-            </li>
+            {routes.map(R => <Lix element={R} /> )}
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/">
-            <h1>Home</h1>
-          </Route>
-          <Route path="/lazy2">
-            <LazyPage2/>
-          </Route>
-          <Route path="/lazy3">
-            <LazyPage3/>
-          </Route>
-          <Route path="/lazy1">
-            <LazyPage1/>
-          </Route>
-        </Switch>
+          <Routes>
+              {routes.map((route) =>  RS(route))}
+              <Route path="/" element={<>Home Page</>}/>
+              <Route path="/*" element={<>404 Not Found</>}/>
+          </Routes>
+
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
