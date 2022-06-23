@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { RouteData } from "../routes"
+import { RouteData } from "../types/types"
 
 export const Lix = (props: LixProps) =>
 {
