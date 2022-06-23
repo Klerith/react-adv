@@ -1,45 +1,34 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  NavLink
-} from 'react-router-dom';
-
+import { Suspense } from 'react';
+import {BrowserRouter, Routes, Route, NavLink} from 'react-router-dom';
+import { Loading } from '../components/loading/Loading';
 import logo from '../logo.svg';
+import { Lix } from './Components/Lix';
+import { routes } from './routes';
+import { RouteData } from './types/types';
+
+const RS = ({path, Component} : RouteData) =>  (<Route key={path} path={path} element={<Component/>}/>)
 
 export const Navigation = () => {
+  // el Suspense es para indicarle a react que debe de esperar, mientras lo haces has otra cosa... (un componete de carga o loading)
   return (
-    <Router>
+    <Suspense fallback={<Loading />}>
+    <BrowserRouter>
       <div className="main-layout">
         <nav>
             <img src={ logo } alt="React Logo" />
           <ul>
-            <li>
-              <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" activeClassName="nav-active" exact>About</NavLink>
-            </li>
-            <li>
-              <NavLink to="/users" activeClassName="nav-active" exact>Users</NavLink>
-            </li>
+            {routes.map(R => <Lix element={R} /> )}
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            <h1>About</h1>
-          </Route>
-          <Route path="/users">
-            <h1>Users</h1>
-          </Route>
-          <Route path="/">
-            <h1>Home</h1>
-          </Route>
-        </Switch>
+          <Routes>
+              {routes.map((route) =>  RS(route))}
+              <Route path="/" element={<>Home Page</>}/>
+              <Route path="/*" element={<>404 Not Found</>}/>
+          </Routes>
+
       </div>
-    </Router>
+    </BrowserRouter>
+    </Suspense>
   );
 }
