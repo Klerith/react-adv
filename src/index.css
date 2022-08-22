@@ -48,6 +48,9 @@ nav li a {
 }
 
 .nav-active {
-  color: grey;
+  color: black;
+  background-color: white;
   transition: all .3s ease-out;
+  padding: 3px 10px;
+  width: 100%;
 }
