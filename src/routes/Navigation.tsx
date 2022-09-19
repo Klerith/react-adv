@@ -11,7 +11,7 @@ export const Navigation = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/">Shpping</NavLink>
+              <NavLink to="/">Shopping</NavLink>
             </li>
             <li>
               <NavLink to="/about">About</NavLink>

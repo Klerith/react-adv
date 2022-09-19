@@ -5,13 +5,16 @@ import { Props, ProductContextProps } from "../interfaces/interfaces";
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
-const ProductCard = ({ children, product }: Props) => {
+const ProductCard = ({ children, product, className }: Props) => {
   const { counter, increaseBy } = useProduct();
   return (
     <Provider value={{ counter, increaseBy, product }}>
       <div className={styles.productCard}>
         {children}
-        <span className={styles.productDescription}> {product.title}</span>
+        <span className={`${styles.productDescription} ${className}`}>
+          {" "}
+          {product.title}
+        </span>
       </div>
     </Provider>
   );
