@@ -24,7 +24,7 @@ nav {
   background-color: #363a45;
   height: 100vh;
   margin-right: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
   text-align: center;
   width: 250px;
 }
