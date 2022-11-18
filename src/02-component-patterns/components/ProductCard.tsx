@@ -2,7 +2,7 @@ import styles from '../styles/styles.module.css'
 import { useProduct } from '../hooks/useProduct';
 import {ProductProps } from '../interfaces';
 import ProductContext from './productContext';
-import { ProductButtons, ProductImage, ProductTitle } from './ProducComponents';
+
 
 
 export const ProductCard = ({product, children}:ProductProps):JSX.Element => {
