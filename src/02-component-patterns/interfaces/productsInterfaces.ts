@@ -4,6 +4,7 @@ export interface IProduct {
   id: string;
   title: string;
   img?: string;
+  className?: string;
 }
 
 export interface ProductProps {
@@ -18,12 +19,8 @@ export interface ProductContextProps {
 }
 
 export interface IProductCard {
-    ({ product, children }: ProductProps) : JSX.Element,
-    Image: ({ img }: {
-        img?: string | undefined;
-    }) => JSX.Element;
-    Title: ({ title }: {
-        title?: string | undefined;
-    }) => JSX.Element;
-    Buttons: () => JSX.Element;
+  ({ product, children }: ProductProps): JSX.Element;
+  Image: ({ img }: { img?: string | undefined }) => JSX.Element;
+  Title: ({ title }: { title?: string | undefined }) => JSX.Element;
+  Buttons: () => JSX.Element;
 }
