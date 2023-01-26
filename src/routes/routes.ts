@@ -1,8 +1,11 @@
 import { LazyExoticComponent, lazy } from "react";
 
+import Shopping from "../02-component-patterns/pages/Shopping";
+
 const lazyHome = lazy(() =>  import(/*  webpackChunkName: "LazyHome" */"../02-component-patterns/pages/Home"));
 const lazyAbout = lazy(() => import(/*  webpackChunkName: "LazyAbout" */"../02-component-patterns/pages/About"));
 const lazyUsers = lazy(() => import(/*  webpackChunkName: "LazyUsers" */"../02-component-patterns/pages/Users"));
+
 
 type JSXComponent = () => JSX.Element;
 
@@ -31,5 +34,11 @@ export const routes: Route[] = [
     path: "users",
     Component: lazyUsers,
     name: "Users",
+  },
+  {
+    to: "/shopping",
+    path: "shopping",
+    Component: Shopping,
+    name: "Shopping",
   },
 ];
