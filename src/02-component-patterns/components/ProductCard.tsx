@@ -1,32 +1,36 @@
-import { useState } from "react";
+import { createContext } from "react";
 
-import styles from "../styles/styles.module.css"
-import noImage from "../assets/no-image.jpg"
+import { IProductCardContext, IProductCardProps } from "../interfaces/interfaces";
+// import { ProductButtons, ProductImage, ProductTitle } from "./";
 
-const ProductCard = () => {
+import useProducts from "../hooks/useProducts";
 
-    const [counter, setCounter] = useState(0);
+import styles from "../styles/styles.module.css";
 
-    const increaseBy = (value: number) => {
-        setCounter(prev => Math.max(prev + value, 0));
-    }
+export const ProductCardContext = createContext({} as IProductCardContext);
+
+export const ProductCard = ({ product, children }: IProductCardProps) => {    
+    const { counter, increaseBy } = useProducts();
 
     return (
-        <div className={styles.productCard}>
-            <img className={styles.productImg} src="./coffee-mug.png" alt="Coffee Mug" />
-            <img className={styles.productImg} src={noImage} alt="no-pic" />
-
-            <span className={styles.productDescription}> Coffee Mug</span>
-
-            <div className={styles.buttonsContainer}>
-                <button className={styles.buttonMinus} onClick={() => increaseBy(-1)}> - </button>
-
-                <div className={styles.countLabel}> {counter} </div>
-
-                <button className={styles.buttonAdd} onClick={() => increaseBy(1)}> + </button>
+        <ProductCardContext.Provider
+            value={{
+                product,
+                counter,
+                increaseBy
+            }}>
+            <div className={styles.productCard}>
+                {children}
             </div>
-        </div>
+        </ProductCardContext.Provider>
     )
-}
+};
 
-export default ProductCard
+/* 
+    Se puede asignar componentes a otro componente de este modo 
+    cuando los componentes a añadir se encuentran en el mismo archivo. 
+*/
+
+// ProductCard.Title = ProductTitle;
+// ProductCard.Image = ProductImage;
+// ProductCard.Buttons = ProductButtons;

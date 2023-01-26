@@ -26,6 +26,12 @@ code {
   flex-direction: column;
 }
 
+.shopping-div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 nav {
   background-color: #363a45;
   height: 100vh;
