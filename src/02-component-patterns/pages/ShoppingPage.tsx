@@ -1,34 +1,48 @@
 import{ FC } from 'react'
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components'
 import '../styles/custom-styles.css'
+import { products } from '../data/products';
+import { useShoppingCart } from '../hooks/useShoppingCart';
 
 
-const products = [
-  {
-    id: '1',
-    title: 'Coffee Mug | Card 1',
-    img: './coffee-mug.png'
-  },
-  {
-    id: '2',
-    title: 'Coffee Mug | Card 2',
-  },
-]
 
 const ShoppingPage:FC = ():JSX.Element => {
+  // Record<string, ProductsCart>
+  const { shoppingCart, onProductCountChange } = useShoppingCart()
+
   return (
     <div style={{display:'flex', flexDirection:'column'}}>
         <h1>ShoppingPage</h1>
         <hr />
         <div style={{display:'flex', flexDirection:'row', flexWrap:'wrap'}}>
-          {/* { products.map(product =>(
-            <ProductCard product={product} key={product.id}>
-                 <ProductCard.Image />
-                 <ProductCard.Title  />
-                 <ProductCard.Buttons />
-            </ProductCard>
-          ))} */}
-           <ProductCard 
+          { products.map(product =>(
+              <ProductCard 
+                product={product}
+                className='bg-dark text-white'
+                value={ shoppingCart[product.id]?.count || 0 }
+                onChange = {(count, product) => onProductCountChange(count, product)}
+                key={product.id}
+              >
+                   <ProductCard.Image 
+                    className='custom-image'
+                    style={{
+                      boxShadow: '10px 10px 10px rgba(0,0,0,0.5)'
+                     }}
+                   />
+                   <ProductCard.Title  
+                    className='text-bold'
+                   />
+                   <ProductCard.Buttons 
+                    className='custom-buttons'
+                    style={{
+                      display:'flex',
+                      justifyContent:'center'
+                    }}
+                   />
+              </ProductCard>
+          ))}
+         
+           {/* <ProductCard 
             product={products[0]}
             className='bg-dark text-white'
             >
@@ -46,7 +60,7 @@ const ShoppingPage:FC = ():JSX.Element => {
                  />
             </ProductCard>
             <ProductCard 
-              product={products[0]} 
+              product={products[1]} 
               className='bg-dark text-white'
               >
                  <ProductImage 
@@ -63,7 +77,7 @@ const ShoppingPage:FC = ():JSX.Element => {
                  />
             </ProductCard>
             <ProductCard 
-              product={products[1]} 
+              product={products[2]} 
               style = {{
                 backgroundColor: '#70D1F8'
               }}
@@ -87,8 +101,45 @@ const ShoppingPage:FC = ():JSX.Element => {
 
                  }} 
                  />
-            </ProductCard>
+            </ProductCard> */}
         </div>
+        <div className='shopping-cart'>
+            {
+              (
+                Object.entries(shoppingCart).map( ([key, product]) => (
+                  <ProductCard 
+                    product={product}
+                    className='bg-dark text-white'
+                    style={{width: '100px'}}
+                    value={product.count}
+                    onChange = {(count, product) => onProductCountChange(count, product)}
+                    key={key}
+                  >
+                     <ProductCard.Image 
+                      className='custom-image'
+                      style={{
+                        boxShadow: '10px 10px 10px rgba(0,0,0,0.5)'
+                       }}
+                     />
+                     <ProductCard.Buttons 
+                      className='custom-buttons'
+                      style={{
+                        display:'flex',
+                        justifyContent:'center'
+                      }}
+
+                     />
+                </ProductCard>
+                ))
+              )
+            }
+           
+        </div>
+        {/* <div>
+          <code>
+            {JSON.stringify(shoppingCart, null, 5)}
+          </code>
+        </div> */}
     </div>
   )
 }
