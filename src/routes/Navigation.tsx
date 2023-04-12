@@ -10,6 +10,8 @@ import FormikBasicPage from '../03-forms/pages/FormikBasicPage';
 import FormikYupPage from '../03-forms/pages/FormikYupPage';
 import FormikComponentPage from '../03-forms/pages/FormikComponentPage';
 import FormikAbstractionPage from '../03-forms/pages/FormikAbstractionPage';
+import RegisterFormikPage from '../03-forms/pages/RegisterFormikPage';
+import FormikDynamicFormPage  from '../03-forms/pages/FormikDynamicForm';
 
 
 
@@ -29,6 +31,9 @@ export const Navigation = () => {
               <NavLink to="/register" activeClassName="nav-active" exact>Register Page</NavLink>
             </li>
             <li>
+              <NavLink to="/register-formik" activeClassName="nav-active" exact>Register Formik Page</NavLink>
+            </li>
+            <li>
               <NavLink to="/formik-basic" activeClassName="nav-active" exact>Formik Basic</NavLink>
             </li>
             <li>
@@ -39,6 +44,9 @@ export const Navigation = () => {
             </li>
             <li>
               <NavLink to="/formik-abstraction" activeClassName="nav-active" exact>Formik Abstraction</NavLink>
+            </li>
+            <li>
+              <NavLink to="/formik-dynamic" activeClassName="nav-active" exact>Formik Dynamic</NavLink>
             </li>
             <li>
               <NavLink to="/about" activeClassName="nav-active" exact>About</NavLink>
@@ -55,6 +63,9 @@ export const Navigation = () => {
           <Route path="/register">
             <RegisterPage />
           </Route>
+          <Route path="/register-formik">
+            <RegisterFormikPage />
+          </Route>
           <Route path="/formik-basic">
             <FormikBasicPage />
           </Route>
@@ -66,6 +77,9 @@ export const Navigation = () => {
           </Route>
           <Route path="/formik-abstraction">
             <FormikAbstractionPage />
+          </Route>
+          <Route path="/formik-dynamic">
+            <FormikDynamicFormPage />
           </Route>
           <Route path="/about">
             <h1>About</h1>

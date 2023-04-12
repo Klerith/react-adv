@@ -74,6 +74,7 @@ const FormikAbstractionPage = () => {
                                 <MyCheckbox label="Termns & Conditions" name="terms" />
 
                                 <button type="submit">Submit</button>
+                                <button type="submit" onClick={() => formik.handleReset()}>Reset</button>
 
                             </Form>
                         )
