@@ -5,8 +5,7 @@ import {
   NavLink,
 } from "react-router-dom";
 
-import logo from "../logo.svg";
-import { ShoppingPage } from "../pages/ShoppingPage";
+import logo from '../logo.svg';
 
 export const Navigation = () => {
   return (
@@ -16,9 +15,7 @@ export const Navigation = () => {
           <img src={logo} alt="React Logo" />
           <ul>
             <li>
-              <NavLink to="/" activeClassName="nav-active" exact>
-                Shopping
-              </NavLink>
+              <NavLink to="/" activeClassName="nav-active" exact>Home</NavLink>
             </li>
             <li>
               <NavLink to="/about" activeClassName="nav-active" exact>
