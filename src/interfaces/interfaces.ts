@@ -1,9 +1,4 @@
-import { ReactElement } from "react";
-
-export interface ProductCardProps {
-  product: Product;
-  children?: ReactElement | ReactElement[];
-}
+import { Props as ProductCardProps } from "../components/ProductCard";
 
 export interface Product {
   id: string;
@@ -18,7 +13,7 @@ export interface ProductContextProps {
 }
 
 export interface ProductCardsHOCProps {
-  ({ children, product }: ProductCardProps): JSX.Element;
+  ({ children, product, className }: ProductCardProps): JSX.Element;
 
   Title: ({ title }: { title?: string }) => JSX.Element;
 

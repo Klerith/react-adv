@@ -1,0 +1,14 @@
+.text-white {
+  color: white;
+}
+
+.dark-gray {
+  background-color: rgb(45, 45, 85);
+}
+
+.custom-image {
+  border-radius: 20px;
+  padding: 0px;
+  width: calc(100% - 20px);
+  height: 300px;
+}
