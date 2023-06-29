@@ -5,12 +5,13 @@ import styles from "../styles/styles.module.css";
 import { useContext } from "react";
 import { ProductContext } from "./ProductCard";
 
-interface Props {
+ export  interface Props {
   className?: string;
-  img?: string;
+   img?: string;
+   style?: React.CSSProperties;
 }
 
-export const ProductImage = ({ img = cofeImg, className }: Props) => {
+export const ProductImage = ({ img = cofeImg, className , style}: Props) => {
   const { product } = useContext(ProductContext);
 
   let imgToShow: string;
@@ -24,7 +25,7 @@ export const ProductImage = ({ img = cofeImg, className }: Props) => {
   }
 
   return (
-    <img
+    <img style={style}
       className={` ${styles.productImg} ${className}`}
       // src={img ? cofeImg : NoImg}
       src={imgToShow}

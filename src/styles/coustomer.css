@@ -3,7 +3,7 @@
 }
 
 .dark-gray {
-  background-color: rgb(45, 45, 85);
+  background-color: #565656;
 }
 
 .custom-image {
@@ -11,4 +11,10 @@
   padding: 0px;
   width: calc(100% - 20px);
   height: 300px;
+}
+
+.custom-buttons button,
+.custom-buttons div {
+  background-color: white;
+  border-color: white;
 }

@@ -8,18 +8,19 @@ export interface Props {
   product: Product;
   children?: ReactElement | ReactElement[];
   className?: string;
+  style?: React.CSSProperties;
 }
 
 export const ProductContext = createContext({} as ProductContextProps);
 
 export const { Provider } = ProductContext;
 
-export const ProductCard = ({ children, product, className }: Props) => {
+export const ProductCard = ({ children, product, className, style }: Props) => {
   const { counter, increaseBy } = useProducts();
 
   return (
     <Provider value={{ counter, increaseBy, product }}>
-      <div className={`${styles.productCard} ${className}`}>
+      <div style={style} className={`${styles.productCard} ${className}`}>
         {children}
         {/* esto se renderisa super bien y se llama Component patter  */}
         {/* <ProductImage img={product.img} /> */}
