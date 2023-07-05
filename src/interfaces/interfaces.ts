@@ -15,6 +15,11 @@ export interface ProductContextProps {
   product: Product;
 }
 
+
+export interface ProductInCart extends Product {
+  counter: number;
+}
+
 export interface ProductCardsHOCProps {
   ({ children, product }: ProductCardProps): JSX.Element;
 

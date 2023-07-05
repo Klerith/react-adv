@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import "../styles/coustomer.css";
 
 import {
@@ -8,36 +6,11 @@ import {
   ProductImage,
   ProductTitle,
 } from "../components/index";
-import { Product } from "../interfaces/interfaces";
-
-const product1 = {
-  id: "01",
-  title: "Coffie -img",
-  img: "./coffee-mug.png",
-};
-
-const product2 = {
-  id: "02",
-  title: "Coffie -Meme",
-  img: "./coffee-mug2.png",
-};
-
-// de esta manera construimos un arreglo
-
-const products: Product[] = [product1, product2];
-
-interface ProductInCart extends Product {
-  counter: number;
-}
+import { useShoppingCardt } from "../hooks/useShoppingCart";
+import { product2 } from "../data/products";
 
 export const ShoppingPage = () => {
-  const [shoppingCard, setShoppingCard] = useState<{
-    [key: string]: ProductInCart;
-  }>({});
-
-  const onProductConstChange = (event: any) => {
-    console.log("onProductConstChange", event);
-  };
+  const { onProductConstChange, shoppingCard, products } = useShoppingCardt();
 
   return (
     <div>
@@ -56,6 +29,7 @@ export const ShoppingPage = () => {
             key={producto.id}
             className="dark-gray text-white"
             product={producto}
+            value={shoppingCard[producto.id]?.counter || 0}
             onChange={(event) => onProductConstChange(event)}
           >
             <ProductImage className="custom-image" />
@@ -71,18 +45,36 @@ export const ShoppingPage = () => {
           product={product2}
         >
           <ProductImage className="custom-image" />
-          <ProductButtons className="custom-buttons" />
+          <ProductButtons
+            className="custom-buttons"
+            style={{ display: "flex", justifyContent: "center" }}
+          />
         </ProductCard>
-
-        <ProductCard
-          style={{ width: "100px" }}
-          className="dark-gray text-white"
-          product={product1}
-        >
-          <ProductImage className="custom-image" />
-          <ProductButtons className="custom-buttons" />
-        </ProductCard>
+        {
+          // el Object.entries es para cuando no se deja hacer el .map y necesitamos obtener los valores de entreda o mapearlo
+          // pero tiene que salir si o si dos valores , en este caso la key y el product
+          Object.entries(shoppingCard).map(([key, product]) => (
+            <ProductCard
+              key={key}
+              style={{ width: "100px" }}
+              className="dark-gray text-white"
+              product={product}
+              value={product.counter}
+              onChange={onProductConstChange}
+            >
+              <ProductImage className="custom-image" />
+              <ProductButtons
+                className="custom-buttons"
+                style={{ display: "flex", justifyContent: "center" }}
+              />
+            </ProductCard>
+          ))
+        }
       </div>
+
+      {/* <div>
+        <code>{JSON.stringify(shoppingCard, null, 5)}</code>
+      </div> */}
     </div>
   );
 };
