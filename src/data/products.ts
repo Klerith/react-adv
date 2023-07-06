@@ -6,9 +6,6 @@ const product1 = {
   img: "./coffee-mug.png",
 };
 
-// comentadio
-//se re sube
-
 export const product2 = {
   id: "02",
   title: "Coffie -Meme",
