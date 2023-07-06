@@ -7,6 +7,7 @@ const product1 = {
 };
 
 // comentadio
+//se re sube
 
 export const product2 = {
   id: "02",
