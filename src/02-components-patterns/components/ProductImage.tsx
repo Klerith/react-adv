@@ -4,7 +4,12 @@ import { ProductContext } from './ProductCard';
 import styles from '../styles/styles.module.css'
 import noImage from '../assets/no-image.jpg'
 
-export const ProductImage = ({ img = '' }) => { // un string '' para un ternario es considerar que no tiene valor.
+export interface ProductImageProps {
+  img?: string;
+  className?: string;
+}
+
+export const ProductImage = ({ img, className }: ProductImageProps) => { // un string '' para un ternario es considerar que no tiene valor.
 
     const { product } = useContext( ProductContext )
     let imgToShow: string;
@@ -18,6 +23,10 @@ export const ProductImage = ({ img = '' }) => { // un string '' para un ternario
     }
   
     return(
-      <img className={ styles.productImg } src={imgToShow} alt='Product Img'/>
+      <img 
+        className={ `${ styles.productImg } ${ className }` } 
+        src={imgToShow} 
+        alt='Product Img'
+      />
     )
   }
