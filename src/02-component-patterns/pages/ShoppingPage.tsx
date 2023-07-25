@@ -1,5 +1,5 @@
-import React from 'react'
 import { ProductCard } from '../components/'
+import '../styles/custom-styles.css'
 
 const product = {
     id: '1',
@@ -15,11 +15,12 @@ const ShoppingPage = () => {
 
             <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
                 <ProductCard
+                    className="bg-dark"
                     product={product}
                 >
-                    <ProductCard.Image />
-                    <ProductCard.Title title='Coffie xD' />
-                    <ProductCard.Buttons />
+                    <ProductCard.Image className="custom-image" />
+                    <ProductCard.Title title="Coffie xD" className="text-white" />
+                    <ProductCard.Buttons className="custom-buttons" />
                 </ProductCard>
 
                 <ProductCard
