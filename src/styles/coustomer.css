@@ -1,0 +1,25 @@
+.text-white {
+  color: white;
+}
+
+.dark-gray {
+  background-color: #565656;
+}
+
+.custom-image {
+  border-radius: 20px;
+  padding: 0px;
+  width: calc(100% - 20px);
+}
+
+.custom-buttons button,
+.custom-buttons div {
+  background-color: white;
+  border-color: white;
+}
+
+.shoppin-card {
+  position: fixed;
+  right: 10px;
+  top: 0;
+}
