@@ -21,10 +21,10 @@ code {
 }
 
 nav {
+  overflow-y: hidden;
   background-color: #363a45;
   height: 100vh;
   margin-right: 15px;
-  overflow-y: scroll;
   text-align: center;
   width: 250px;
 }
