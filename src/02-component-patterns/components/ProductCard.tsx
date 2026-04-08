@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, type JSX } from 'react';
 
 import { useProduct } from '../hooks/useProduct';
 import { ProductContextProps, Product, onChangeArgs, InitialValues, ProductCardHandlers } from '../interfaces/interfaces';

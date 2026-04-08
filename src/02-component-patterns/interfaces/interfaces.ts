@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Props as ProductButtonsProps } from '../components/ProductButtons';
 import { Props as ProductCardProps } from '../components/ProductCard';
 import { Props as ProductImageProps } from '../components/ProductImage';
